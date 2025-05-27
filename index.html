@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Operações com Matrizes e Polinômios - Interativo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Operações com Matrizes e Polinômios - Interativo</h1>
+    <p>Digite duas matrizes ou um polinômio para realizar operações e visualizar o passo a passo.</p>
+  </header>
+  <main>
+    <section aria-label="Operações com matrizes">
+      <div class="matrix-blocks" aria-label="Entradas das matrizes">
+
+        <section class="matrix-container" aria-label="Matriz A">
+          <h2>Matriz A</h2>
+          <table id="tableA" aria-describedby="tableADesc"></table>
+          <div class="controls">
+            <button type="button" id="addRowA" aria-label="Adicionar linha na Matriz A">➕ Linha</button>
+            <button type="button" id="removeRowA" aria-label="Remover linha na Matriz A">➖ Linha</button>
+            <button type="button" id="addColA" aria-label="Adicionar coluna na Matriz A">➕ Coluna</button>
+            <button type="button" id="removeColA" aria-label="Remover coluna na Matriz A">➖ Coluna</button>
+          </div>
+          <div id="tableADesc" class="sr-only">Tabela de entrada de números para Matriz A</div>
+        </section>
+
+        <section class="matrix-container" aria-label="Matriz B">
+          <h2>Matriz B</h2>
+          <table id="tableB" aria-describedby="tableBDesc"></table>
+          <div class="controls">
+            <button type="button" id="addRowB" aria-label="Adicionar linha na Matriz B">➕ Linha</button>
+            <button type="button" id="removeRowB" aria-label="Remover linha na Matriz B">➖ Linha</button>
+            <button type="button" id="addColB" aria-label="Adicionar coluna na Matriz B">➕ Coluna</button>
+            <button type="button" id="removeColB" aria-label="Remover coluna na Matriz B">➖ Coluna</button>
+          </div>
+          <div id="tableBDesc" class="sr-only">Tabela de entrada de números para Matriz B</div>
+        </section>
+
+      </div>
+
+      <label for="operationSelect" style="margin-top: 1rem; font-weight: 700; font-size: 1.1rem; color:#34495e; user-select:none;">Selecione a operação:</label>
+      <select id="operationSelect" style="font-size:1rem; padding:0.4rem; border-radius:6px; border:1.5px solid #b2bec3; max-width: 350px;">
+        <option value="add">Soma de Matrizes (A + B)</option>
+        <option value="subtract">Subtração de Matrizes (A - B)</option>
+        <option value="multiply">Multiplicação de Matrizes (A × B)</option>
+        <option value="transposeA">Transposição da Matriz A</option>
+        <option value="determinantA">Determinante da Matriz A</option>
+        <option value="inverseA">Inversa da Matriz A</option>
+      </select>
+
+      <button id="solveBtn" aria-live="polite" aria-label="Botão para resolver a operação">Resolver</button>
+
+      <div id="steps" aria-live="polite" aria-label="Passos da resolução" role="region" tabindex="0" aria-atomic="true"></div>
+    </section>
+
+    <section class="polynomial-container" aria-label="Operações com polinômios">
+      <h2>Operações com Polinômios</h2>
+      <div class="poly-control-group">
+        <label for="polyInput">Polinômio (use variável <code>x</code>):</label>
+        <input type="text" id="polyInput" placeholder="Ex: 2x^3 - 4x + 7" aria-describedby="polyHelp" />
+      </div>
+      <div class="poly-control-group">
+        <label for="polyOpSelect">Operação:</label>
+        <select id="polyOpSelect" aria-describedby="polyHelp">
+          <option value="evaluate">Avaliar em x</option>
+          <option value="derivative">Derivar</option>
+          <option value="integral">Integrar (Indefinido)</option>
+        </select>
+      </div>
+      <div class="poly-control-group" id="evalValueGroup">
+        <label for="polyEvalValue">Valor de x:</label>
+        <input type="number" id="polyEvalValue" value="0" />
+      </div>
+      <button id="polyComputeBtn" aria-live="polite" aria-label="Botão para calcular o polinômio">Calcular</button>
+      <div id="polySteps" aria-live="polite" aria-label="Passos da resolução do polinômio" style="white-space: pre-wrap; font-family: 'Courier New', Courier, monospace; background:#dfe6e9; border-radius:10px; padding:1rem 1.25rem; min-height:140px; max-height:280px; overflow-y:auto; color:#2d3436; margin-top:1rem; border:2px solid #b2bec3;"></div>
+      <small id="polyHelp" style="display:block; margin-top:0.25rem; color:#636e72; font-size:0.9rem; user-select:none;">
+        Utilize x como variável. Por exemplo: <code>2x^3 - 4x + 7</code>.
+      </small>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/mathjs@11.8.0/lib/browser/math.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

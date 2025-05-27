@@ -1,0 +1,281 @@
+/* Reset and base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 0 1rem 2rem 1rem;
+      color: #212121;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      align-items: center;
+    }
+    header {
+      margin: 2rem 0 1rem 0;
+      text-align: center;
+      max-width: 900px;
+      width: 100%;
+      user-select: none;
+    }
+    header h1 {
+      font-weight: 700;
+      font-size: 2.25rem;
+      color: #2c3e50;
+      margin-bottom: 0.25rem;
+    }
+    header p {
+      color: #636e72;
+      font-size: 1rem;
+      margin-top: 0;
+    }
+
+    main {
+      background: white;
+      box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+      border-radius: 10px;
+      width: 100%;
+      max-width: 900px;
+      padding: 1.5rem 2rem 2rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #34495e;
+      user-select: none;
+    }
+
+    .matrix-blocks {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .matrix-container {
+      flex: 1 1 300px;
+      min-width: 280px;
+    }
+
+    .matrix-container h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
+      color: #0984e3;
+      user-select: none;
+      text-align: center;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 100%;
+      user-select: text;
+      margin: auto;
+    }
+    th,
+    td {
+      border: 1px solid #b2bec3;
+      padding: 0.3rem 0.5rem;
+      text-align: center;
+      min-width: 50px;
+      vertical-align: middle;
+    }
+    th {
+      background-color: #dfe6e9;
+      font-weight: 600;
+      color: #2d3436;
+      user-select: none;
+    }
+    td input[type="number"] {
+      width: 70px;
+      padding: 0.25rem 0.35rem;
+      border-radius: 6px;
+      border: 1.5px solid #b2bec3;
+      font-size: 1rem;
+      text-align: right;
+      user-select: text;
+      transition: border-color 0.25s ease;
+      background-color: #fdfdfd;
+    }
+    td input[type="number"]:focus {
+      border-color: #0984e3;
+      outline: none;
+      box-shadow: 0 0 5px #0984e3aa;
+      background-color: #fff;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .controls button {
+      background-color: #0984e3;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.6rem 1.4rem;
+      cursor: pointer;
+      transition: background-color 0.25s ease;
+      user-select: none;
+      min-width: 140px;
+      flex: 1 1 auto;
+      text-align: center;
+    }
+    .controls button:hover,
+    .controls button:focus {
+      background-color: #74b9ff;
+      outline: none;
+      color: #2d3436;
+    }
+    .controls button:active {
+      background-color: #0562bd;
+      color: white;
+    }
+
+    #steps {
+      background: #dfe6e9;
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      font-family: 'Courier New', Courier, monospace;
+      white-space: pre-wrap;
+      min-height: 240px;
+      max-height: 320px;
+      overflow-y: auto;
+      color: #2d3436;
+      user-select: text;
+      border: 2px solid #b2bec3;
+      margin-top: 1rem;
+    }
+    #steps.error {
+      color: #d63031;
+      font-weight: 700;
+    }
+
+    /* Polynomial section */
+    .polynomial-container {
+      background: #f0f5f9;
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+      max-width: 700px;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+    .polynomial-container h2 {
+      color: #6c5ce7;
+      text-align: center;
+      user-select: none;
+      margin-bottom: 0.6rem;
+    }
+
+    .poly-control-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 0.6rem;
+    }
+
+    .poly-control-group label {
+      font-weight: 600;
+      color: #34495e;
+      user-select: none;
+      min-width: 140px;
+      text-align: right;
+    }
+
+    .poly-control-group input[type="text"],
+    .poly-control-group input[type="number"],
+    .poly-control-group select {
+      font-size: 1rem;
+      padding: 0.35rem 0.5rem;
+      border-radius: 6px;
+      border: 1.5px solid #b2bec3;
+      min-width: 180px;
+      user-select: text;
+    }
+    .poly-control-group input[type="number"] {
+      max-width: 120px;
+    }
+    .poly-control-group input[type="text"]:focus,
+    .poly-control-group input[type="number"]:focus,
+    .poly-control-group select:focus {
+      border-color: #6c5ce7;
+      outline: none;
+      box-shadow: 0 0 6px #6c5ce7aa;
+      background-color: #fff;
+    }
+
+    #polyComputeBtn {
+      background-color: #6c5ce7;
+      color: white;
+      padding: 0.65rem 1.4rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      display: block;
+      margin: 0 auto;
+      max-width: 220px;
+    }
+    #polyComputeBtn:hover,
+    #polyComputeBtn:focus {
+      background-color: #a29bfe;
+      outline: none;
+      color: #2d3436;
+    }
+    #polyComputeBtn:active {
+      background-color: #5941e0;
+      color: white;
+    }
+
+    @media (max-width: 720px){
+      main {
+        padding: 1rem 1rem 1.5rem 1rem;
+      }
+      header h1 {
+        font-size: 1.75rem;
+      }
+      .matrix-blocks {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .controls {
+        justify-content: stretch;
+      }
+      .controls button {
+        min-width: auto;
+      }
+      .poly-control-group {
+        justify-content: space-around;
+      }
+      .poly-control-group label {
+        text-align: left;
+        min-width: auto;
+        flex: 1 1 100%;
+      }
+      .poly-control-group input[type="text"],
+      .poly-control-group input[type="number"],
+      .poly-control-group select {
+        min-width: auto;
+        flex: 1 1 100%;
+      }
+      #polyComputeBtn {
+        max-width: 100%;
+      }
+    }
